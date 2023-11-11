@@ -8,6 +8,10 @@ public class Diamante : MonoBehaviour
     private float diamanteSpeed = 2;
     [SerializeField] private UIControler uiC;
 
+    void Start()
+    {
+        uiC = FindObjectOfType<UIControler>();
+    }
     void Update()
     {
         transform.Translate(Vector2.down * diamanteSpeed * Time.deltaTime);
@@ -26,5 +30,4 @@ public class Diamante : MonoBehaviour
             Destroy(gameObject);//destruye el objeto luego de 0.5 de tiempo
         }
     }
-
 }

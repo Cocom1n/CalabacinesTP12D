@@ -6,10 +6,13 @@ public class damageObject : MonoBehaviour
 {
     private float daño = -1;
     [SerializeField] private UIControler uiC;
-    
+
+    void Start()
+    {
+        uiC = FindObjectOfType<UIControler>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("daño00000000000000000");
         if(collision.CompareTag("Player"))
         {
             uiC.manejarDiamantes(daño);
