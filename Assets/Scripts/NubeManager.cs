@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class NubeManager : MonoBehaviour
 {
-    private float plataformSpeed = 2;
+    private float plataformSpeed;
     void Start()
     {
-        
+        plataformSpeed = Random.Range(1.0f, 3.0f);
     }
 
     // Update is called once per frame
@@ -15,9 +15,7 @@ public class NubeManager : MonoBehaviour
     {
         transform.Translate(Vector2.down * plataformSpeed * Time.deltaTime);
 
-        if (transform.position.y < -10f)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject,5);
+        
     }
 }
