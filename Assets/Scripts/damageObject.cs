@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class damageObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float daño = -1;
+    [SerializeField] private UIControler uiC;
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("daño00000000000000000");
+        if(collision.CompareTag("Player"))
+        {
+            uiC.manejarDiamantes(daño);
+            Destroy(gameObject);
+        }
     }
 }

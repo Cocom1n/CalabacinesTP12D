@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Diamante : MonoBehaviour
 {
-    //private float puntoFlor = 1;
+    private float punto = 1;
     private float diamanteSpeed = 2;
+    [SerializeField] private UIControler uiC;
 
     void Update()
     {
@@ -21,6 +22,7 @@ public class Diamante : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            uiC.manejarDiamantes(punto);
             Destroy(gameObject);//destruye el objeto luego de 0.5 de tiempo
         }
     }
