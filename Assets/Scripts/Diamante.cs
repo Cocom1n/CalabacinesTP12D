@@ -5,12 +5,13 @@ using UnityEngine;
 public class Diamante : MonoBehaviour
 {
     private float punto = 1;
-    private float diamanteSpeed = 2;
+    private float diamanteSpeed;
     [SerializeField] private UIControler uiC;
 
     void Start()
     {
         uiC = FindObjectOfType<UIControler>();
+        diamanteSpeed = Random.Range(2.0f, 4.0f);
     }
     void Update()
     {
