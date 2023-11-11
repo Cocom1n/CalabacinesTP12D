@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Generador1 : MonoBehaviour
 {
-    [SerializeField] private GameObject prefabDiamante;
+    [SerializeField] private GameObject prefab;
     [SerializeField] private Transform puntoA;
     [SerializeField] private Transform puntoB;
+    [SerializeField] private int cantidadMaxima;
     private float random;
     void Start()
     {
@@ -15,20 +16,13 @@ public class Generador1 : MonoBehaviour
 
     public void generar()
     {
-        int cantidadDiamantes = Random.Range(1, 4);
+        int cantidadAGnerar = Random.Range(1, cantidadMaxima);
 
-        for (int i = 0; i < cantidadDiamantes; i++)
+        for (int i = 0; i < cantidadAGnerar; i++)
         {
             Vector2 posicionAleatoria = new Vector2(Random.Range(puntoA.position.x, puntoB.position.x), puntoA.position.y);
 
-            Instantiate(prefabDiamante, posicionAleatoria, Quaternion.identity);
+            Instantiate(prefab, posicionAleatoria, Quaternion.identity);
         }
     }
-    // {
-    //     Vector2 posAleatoria1 = new Vector2(Random.Range(puntoA.position.x, puntoB.position.x), puntoA.position.y);
-    //     Instantiate(prefabDiamante, posAleatoria1, gameObject.transform.rotation);
-
-    //     Vector2 posAleatoria2 = new Vector2(Random.Range(puntoA.position.x, puntoB.position.x), puntoA.position.y);
-    //     Instantiate(prefabDiamante, posAleatoria2, gameObject.transform.rotation);
-    // }
 }
