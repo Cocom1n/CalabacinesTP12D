@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Generador2 : MonoBehaviour
 {
+    //generador de fantasmas
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform puntoA;
     [SerializeField] private Transform puntoB;    
@@ -12,7 +13,7 @@ public class Generador2 : MonoBehaviour
     void Start()
     {
         int random = Random.Range(3, 6);
-        InvokeRepeating("generar", 1, random);
+        InvokeRepeating("generar", 1, random); 
     }
 
     public void generar()

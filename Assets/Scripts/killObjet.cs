@@ -7,7 +7,7 @@ public class killObjet : MonoBehaviour
     [SerializeField] private GameObject lose;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //detecta la colicion de cualquier enemigo con el jugador
+        //detecta la colicion del limite inferior de la pantalla con el jugador y lo elimina directamente
         if (collision.transform.CompareTag("Kill"))
         {
             gameObject.SetActive(false);

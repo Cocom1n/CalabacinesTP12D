@@ -4,32 +4,26 @@ using UnityEngine;
 
 public class cameraMove : MonoBehaviour
 {
-    public Transform jugador;
+    public Transform jugador; //Referencia al transform del objeto que va a seguir
     private float alturaMaxima;
 
     [SerializeField] private float auxiliar;
 
     private void Start()
     {
-        if (jugador != null)
-        {
-            alturaMaxima = jugador.position.y;
-        }
+        alturaMaxima = jugador.position.y;//Altura maxima a la que llega el jugador
     }
 
     private void LateUpdate()
     {
-        if (jugador != null)
+        float alturaJugador = jugador.position.y;
+
+        if (alturaJugador > alturaMaxima) //si la altura del jugador actual supera la altura maxima
         {
-            float alturaJugador = jugador.position.y;
-
-            if (alturaJugador > alturaMaxima)
-            {
-                alturaMaxima = alturaJugador;
-            }
-
-            Vector3 nuevaPosicion = new Vector3(transform.position.x, auxiliar + alturaMaxima, transform.position.z);
-            transform.position = nuevaPosicion;
+            alturaMaxima = alturaJugador;  //se actualiza la altura maxima
         }
+
+        Vector3 nuevaPosicion = new Vector3(transform.position.x, auxiliar + alturaMaxima, transform.position.z);
+        transform.position = nuevaPosicion; //se mueve la camara hasta la nueva pocicion maxima alcanzada.
     }
 }

@@ -10,14 +10,14 @@ public class Diamante : MonoBehaviour
 
     void Start()
     {
-        uiC = FindObjectOfType<UIControler>();
+        uiC = FindObjectOfType<UIControler>();//Busca un objeto en la escena que contenga este componente
         diamanteSpeed = Random.Range(2.0f, 4.0f);
     }
     void Update()
     {
-        transform.Translate(Vector2.down * diamanteSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * diamanteSpeed * Time.deltaTime); //mueve los diamantes hacia abajo con una velocidad aleatoria
 
-        Destroy(gameObject, 8);
+        Destroy(gameObject, 8); //Y los destruye despues de 8 segundos
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +25,12 @@ public class Diamante : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             uiC.manejarDiamantes(punto);
-            Destroy(gameObject);//destruye el objeto luego de 0.5 de tiempo
+            Destroy(gameObject);
         }
+
+        // if(collision.CompareTag("Kill"))
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }
