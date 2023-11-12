@@ -17,10 +17,7 @@ public class Diamante : MonoBehaviour
     {
         transform.Translate(Vector2.down * diamanteSpeed * Time.deltaTime);
 
-        if (transform.position.y < -10f)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, 8);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -13,10 +13,6 @@ public class ojoManager : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.down * ojoSpeed * Time.deltaTime);
-
-        if (transform.position.y < -10f)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, 7);
     }
 }

@@ -8,10 +8,11 @@ public class Generador1 : MonoBehaviour
     [SerializeField] private Transform puntoA;
     [SerializeField] private Transform puntoB;
     [SerializeField] private int cantidadMaxima;
-    private float random;
+    private float intervalo;
     void Start()
     {
-        InvokeRepeating("generar", 1, 3);
+        intervalo = Random.Range(2, 4);
+        InvokeRepeating("generar", 1, intervalo);
     }
 
     public void generar()
