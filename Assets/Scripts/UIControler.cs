@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class UIControler : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class UIControler : MonoBehaviour
     private TextMeshProUGUI textMesh;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject lose;
+    [SerializeField] private AudioSource lostSound;
+    [SerializeField] private AudioSource gameSound;
 
     private void Start ()
     {
@@ -38,6 +41,8 @@ public class UIControler : MonoBehaviour
     public void perder()
     {
         lose.SetActive(true);
+        lostSound.Play();
+        gameSound.Stop();
     }
 
     //metodo que reinicia el nivel al apretar el boton de reiniciar

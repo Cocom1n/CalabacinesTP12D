@@ -13,7 +13,7 @@ public class NubeManager : MonoBehaviour
     void Update()
     {
         //mueve las nubes hacia abajo con una velocidad aleatoria 
-        transform.Translate(Vector2.down * plataformSpeed * Time.deltaTime);
+        //transform.Translate(Vector2.down * plataformSpeed * Time.deltaTime);
 
         Destroy(gameObject,5); //Destruye el objeto despues de 5 segundos
         

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Diamante : MonoBehaviour
 {
     private float punto = 1;
     private float diamanteSpeed;
     [SerializeField] private UIControler uiC;
+    [SerializeField] private AudioSource collect;
 
     void Start()
     {
@@ -24,8 +26,9 @@ public class Diamante : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            collect.Play();
             uiC.manejarDiamantes(punto);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.2f);
         }
 
         // if(collision.CompareTag("Kill"))
