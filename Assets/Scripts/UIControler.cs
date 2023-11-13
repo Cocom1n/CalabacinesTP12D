@@ -13,6 +13,8 @@ public class UIControler : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject lose;
     [SerializeField] private AudioSource lostSound;
+    [SerializeField] private TextMeshProUGUI loseDiamantes;
+
     [SerializeField] private AudioSource gameSound;
 
     private void Start ()
@@ -36,6 +38,7 @@ public class UIControler : MonoBehaviour
             Invoke("perder", 1); // muestra el panel de perdiste despues de un segundo
         }
         textMesh.text = diamante.ToString("0");
+        loseDiamantes.text = "Diamantes totales: " + diamante.ToString("0"); //asigna la cantidad de diamantes que recolecto el jugador al morir
     }
 
     public void perder()
